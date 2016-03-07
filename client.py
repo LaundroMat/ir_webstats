@@ -459,8 +459,7 @@ class iRWebStats:
         """ Gets the event results (table of positions, times, etc.). The
             event is identified by a subsession id. """
 
-        r = self.__req(ct.URL_GET_EVENTRESULTS % (subsession, sessnum))\
-                .encode('utf8')
+        r = self.__req(ct.URL_GET_EVENTRESULTS % (subsession, sessnum))
         data = [x for x in csv.reader(StringIO(r), delimiter=',',
                                       quotechar='"')]
         header_ev, header_res = data[0], data[3]
